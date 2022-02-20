@@ -27,4 +27,3 @@ import { ConfigModule } from '@nestjs/config';
   providers: [AppService],
 })
 export class AppModule {}
-console.log(process.env.POSTGRES_USER);
