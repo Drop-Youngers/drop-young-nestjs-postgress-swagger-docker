@@ -2,21 +2,24 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Book } from './entities/book.entity';
 import { LibraryModule } from './modules/library.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
+    ConfigModule.forRoot({ isGlobal: true, envFilePath: '.env' }),
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'localhost',
-      port: 5432,
-      username: 'liberi',
-      password: 'liberi',
-      database: 'learndb',
-      entities: [Book],
+      host: process.env.POSTGRES_HOST,
+      port: +process.env.POSTGRES_PORT,
+      username: process.env.POSTGRES_USER,
+      password: process.env.POSTGRES_PASSWORD,
+      // entities: ['/src/entities/*.entity{.ts,.js}'],
+      database: process.env.POSTGRES_DATABASE,
+      autoLoadEntities: true,
       synchronize: true,
-      dropSchema: true,
+      migrations: ['dist/src/db/migrations.js'],
+      cli: { migrationsDir: 'src/db/migrations' },
     }),
     LibraryModule,
   ],
@@ -24,3 +27,4 @@ import { LibraryModule } from './modules/library.module';
   providers: [AppService],
 })
 export class AppModule {}
+console.log(process.env.POSTGRES_USER);
