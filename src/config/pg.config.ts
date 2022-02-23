@@ -1,7 +1,5 @@
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 
-console.log(process.env.POSTGRES_PASSWORD);
-console.log(process.env.POSTGRES_USER);
 export const pgConfig: TypeOrmModuleOptions = {
   type: 'postgres',
   host: process.env.POSTGRES_HOST,

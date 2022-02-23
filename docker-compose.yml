@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3.7'
 
 services:
   main:
@@ -18,6 +18,8 @@ services:
       - .env
     networks:
       - webnet
+    links:
+      - postgres
     depends_on:
       - postgres
     restart: unless-stopped
@@ -35,6 +37,7 @@ services:
       - ${POSTGRES_PORT}:${POSTGRES_PORT}
     volumes:
       - pgdata:/var/lib/postgresql/data
+    command: -p ${POSTGRES_PORT}
     restart: unless-stopped
 networks:
   webnet:
