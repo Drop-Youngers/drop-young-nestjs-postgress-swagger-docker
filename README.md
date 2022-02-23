@@ -35,23 +35,25 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
-## Installation
+## Installation 
+Note: This is not neccessary for app to run since it can be handled by Docker. without this app can run smoothly both development and production 
+but for intelisense it is cruisial
 
 ```bash
 $ npm install
+# $ pnpm install
+# $ yarn install
 ```
 
 ## Running the app
 
 ```bash
 # development
-$ npm run start
 
-# watch mode
-$ npm run start:dev
+$ docker-compose up -d app-dev
 
 # production mode
-$ npm run start:prod
+$  docker-compose up -d app-prod
 ```
 
 ## Test
