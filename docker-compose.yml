@@ -1,8 +1,8 @@
 version: '3.7'
 
 services:
-  main:
-    container_name: main
+  app-dev:
+    container_name: clique_api_dev
     build:
       context: .
       target: development
@@ -13,7 +13,29 @@ services:
     ports:
       - ${SERVER_PORT}:${SERVER_PORT}
       - 9229:9229
-    command: npm run start:dev
+    command: npm run start:debug
+    env_file:
+      - .env
+    networks:
+      - webnet
+    links:
+      - postgres
+    depends_on:
+      - postgres
+    restart: unless-stopped
+  app-prod:
+    container_name: clique_api_prod
+    build:
+      context: .
+      target: production
+      dockerfile: ./Dockerfile
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - ${SERVER_PORT}:${SERVER_PORT}
+      - 9229:9229
+    command: npm run start:prod
     env_file:
       - .env
     networks:
