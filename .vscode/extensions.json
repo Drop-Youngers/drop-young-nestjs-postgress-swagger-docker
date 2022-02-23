@@ -1,0 +1,15 @@
+{
+    "recommendations": [
+        "mikestead.dotenv",
+        "aaron-bond.better-comments",
+        "coenraads.bracket-pair-colorizer",
+        "xabikos.javascriptsnippets",
+        "ms-azuretools.vscode-docker",
+        "dbaeumer.vscode-eslint",
+        "github.vscode-pull-request-github",
+        "oderwat.indent-rainbow",
+        "esbenp.prettier-vscode",
+        "rvest.vs-code-prettier-eslint",
+        "humao.rest-client"
+    ]
+}
