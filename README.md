@@ -28,6 +28,7 @@
  - Api request validation (validation pipe)
  - Swagger (open api 3.0)
  - compression 
+ - docker (docker compose)
 
 
 ## Description
