@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   app-dev:
-    container_name: clique_api_dev
+    container_name: api_dev
     build:
       context: .
       target: development
@@ -24,7 +24,7 @@ services:
       - postgres
     restart: unless-stopped
   app-prod:
-    container_name: clique_api_prod
+    container_name: api_prod
     build:
       context: .
       target: production

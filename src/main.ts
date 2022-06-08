@@ -12,10 +12,10 @@ async function bootstrap() {
   app.setGlobalPrefix('api/v1');
 
   const config = new DocumentBuilder()
-    .setTitle('Clique')
-    .setDescription('The Clique api documentation ')
+    .setTitle('App')
+    .setDescription('The App api documentation ')
     .setVersion('1.0')
-    .addTag('clique')
+    .addTag('app')
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
